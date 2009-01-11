@@ -5,3 +5,12 @@
     (t (cons (first (last lst)) (reversi (butlast lst))))
   )
 )
+
+(defun reversi* (lst)
+  "Takes a list and creates a mirror image of it"
+  (cond
+    ((null lst) nil)
+    ((atom (first (last lst))) (cons (first (last lst)) (reversi* (butlast lst))))
+    (t (cons (reversi* (first (last lst))) (reversi* (butlast lst))))
+  )
+)
