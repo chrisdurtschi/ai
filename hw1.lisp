@@ -14,3 +14,10 @@
     (t (cons (reversi* (first (last lst))) (reversi* (butlast lst))))
   )
 )
+
+(defun towers (numdiscs start finish extra)
+  "This function will solve the Towers of Hanoi problem"
+  (cond
+    ((> discs 1))
+  )
+)

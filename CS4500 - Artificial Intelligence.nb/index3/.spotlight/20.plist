@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>keywords</key>
+	<string></string>
+	<key>txt</key>
+	<string>Monday, January 12, 2009 LISP equality predicates = - numeric or simple type equality eq - do these reference exactly the same thing? (address) eql - if simple type, use =, else use eq equal - structural match (like eql*) - use for lists Predicates any function that returns T or NIL special forms - and, or do not pre-evaluate all their arguments Types of predicates atom - is the argument an atom? listp - is the argument a list? numberp - is the argument a number? null - is the argument NIL? member - is this value in this list? and, or, not - special forms &lt;, &gt;, &lt;=, &gt;= LISP I/O INPUT (read) (prompt "-----") - read with a visual prompt OUTPUT princ - pretty print prin1 - read print terpri - new line (terminate print line) format - like printf - (format dest "string with special format chars" args) LISP examples (setq list1 '(a (b c) d ((e f) g))) &gt; (A (B C) D ((E F) G))) (car (cdr (car (cdr list1)))) &gt; C (cons (car list1) (car (cdr list1))) &gt; (A B C) (cdr (car (cdr (cdr (cdr list1))))) &gt; (G)   </string>
+</dict>
+</plist>
