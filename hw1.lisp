@@ -1,7 +1,7 @@
-(defun rev (lst)
-  "Takes a list and returns the atoms in reverse order"
-  (drev lst nil)
-)
+; Chris Durtschi
+; CS4500 Artificial Intelligence
+; Ron Peterson
+; LISP Homework 1
 
 (defun drev (src dest)
   "Construct a list, moving elements of src to dest"
@@ -11,13 +11,13 @@
   )
 )
 
-(defun rev* (lst)
-  "Takes a list and creates a mirror image of it"
-  (drev* lst nil)
+(defun rev (lst)
+  "Takes a list and returns the atoms in reverse order"
+  (drev lst nil)
 )
 
 (defun drev* (src dest)
-  "Construct a list, moving elements of src to dest, going into sub lists"
+  "Construct a list, moving elements of src to dest, including sub lists"
   (cond
     ((null src) dest)
     ((listp (first src))
@@ -27,14 +27,22 @@
   )
 )
 
+(defun rev* (lst)
+  "Takes a list and creates a mirror image of it"
+  (drev* lst nil)
+)
+
 (defun towers (discs start finish extra)
   "Towers of Hanoi"
   (cond
-    ((= discs 1) (princ "Move from ") (princ ) (princ " to ") (princ ) (terpri))
+    ((= discs 1)
+      (princ "Move from ") (princ start) 
+      (princ " to ") (princ finish) (terpri)
+    )
     (t 
-      (towers (- discs 1) start finish extra) 
+      (towers (- discs 1) start extra finish) 
       (towers 1 start finish extra) 
-      (towers (- discs 1) start finish extra)
+      (towers (- discs 1) extra finish start)
     )
   )
 )
