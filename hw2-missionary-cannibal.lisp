@@ -12,16 +12,30 @@
 )
 
 (defun isgoal (state)
+  "We've reached our goal if nobody is left on the starting bank,
+  there are an equal number of missionaries and cannibals on the ending bank,
+  and the boat is at the ending bank."
   (and
     (= 0 (length (first state)))
     (= 0 (length (second state)))
     (= (length (third state)) (length (fourth state)))
+    (= -1 (fifth state))
   )
 )
 
 (defun gettrips (state boatsize missionary cannibal trips open closed)
   "Documentation for gettrips."
-  ()
+  (cond
+    ((= 0 boatsize) trips)
+    ((= (1+ boatsize) cannibal) (gettrips state (1- boatsize) (1- boatsize) 0 trips open closed))
+    (t
+      (gettrips state boatsize (1- missionary) (1+ cannibal) 
+        (cons
+           (if ((fifth state)))
+           trips)
+        open closed)
+    )
+  )
 )
 
 (defun goodchildren (children good open closed)
