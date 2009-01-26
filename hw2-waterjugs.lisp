@@ -99,14 +99,14 @@
 (defun recursivejugs (goal jug1 jug2 open closed path)
   "Recursive function to implement the water jugs solution.
   Base case 1: if the open stack is empty, then we've exhausted all
-    the posibilites, and there's no solution.
+    the possibilities, and there's no solution.
   Base case 2: if the top item on open is our goal state, then we've found
     the solution; return our path.
   Recursive case: find all the children of the first item on open,
     place the first item of open on closed, and try again with the new
     open stack."
   (cond
-    ((null open) (princ "No solution found"))
+    ((null open) "No solution found")
     ((isgoal goal (first open)) (reverse (cons (first open) path)))
     (t
       (recursivejugs goal jug1 jug2 
@@ -125,14 +125,3 @@
   and pouring as much water as possible from one jug to another"
   (recursivejugs goal jug1 jug2 '((0 0)) nil nil)
 )
-
-(trace waterjugs)
-(trace recursivejugs)
-(trace getchildren)
-(trace goodchildren)
-(trace empty1)
-(trace empty2)
-(trace fill1)
-(trace fill2)
-(trace pour1to2)
-(trace pour2to1)
