@@ -49,19 +49,19 @@
   "Transfer the appropriate number of cannibals and missionaries
   from one bank to the other."
   ; we're at the starting bank
-  (if (> (fifth state) 0)
+  (if (= (fifth state) 1)
     ; transfer from start bank to end bank
     (list
       (sublist (first state) cannibal)
       (sublist (second state) missionary)
-      (addlist (third state) cannibal 0)
-      (addlist (fourth state) missionary 1)
+      (addlist (third state) cannibal 'c)
+      (addlist (fourth state) missionary 'm)
       (* -1 (fifth state))
     )
     ; else, transfer from end bank to start bank
     (list
-      (addlist (first state) cannibal 0)
-      (addlist (second state) missionary 1)
+      (addlist (first state) cannibal 'c)
+      (addlist (second state) missionary 'm)
       (sublist (third state) cannibal)
       (sublist (fourth state) missionary)
       (* -1 (fifth state))
@@ -75,24 +75,24 @@
   on the given river bank."
   (cond
     ; we're at the starting bank
-    ((> (fifth state) 0) 
+    ((= (fifth state) 1)
       (and (>= (length (first state)) cannibal)
            (>= (length (second state)) missionary))
     )
     ; we're at the ending bank
     (t
       (and (>= (length (third state)) cannibal)
-           (>= (length (fourth state)) missionary))      
+           (>= (length (fourth state)) missionary))
     )
   )
 )
 
-(defun gettrips (state boatsize cannibal missionary trips open closed)
+(defun gettrips (state boatsize cannibal missionary trips)
   "Gets all possible combination of trips for the given boat size."
   (cond
     ((= 0 boatsize) trips)
     ((= (1+ boatsize) missionary) 
-      (gettrips state (1- boatsize) (1- boatsize) 0 trips open closed)
+      (gettrips state (1- boatsize) (1- boatsize) 0 trips)
     )
     (t
       (gettrips state boatsize (1- cannibal) (1+ missionary) 
@@ -103,8 +103,9 @@
              )
              (t nil)
            )
-           trips)
-        open closed)
+           trips
+        )
+      )
     )
   )
 )
@@ -126,7 +127,7 @@
 
 (defun getchildren (boatsize state open closed)
   "Gets all possible states that don't result in missionaries getting eaten."
-  (goodchildren (gettrips state boatsize boatsize 0 nil open closed) nil open closed)
+  (goodchildren (gettrips state boatsize boatsize 0 nil) nil (cons state open) closed)
 )
 
 (defun recursivehelper (boatsize open closed path)
@@ -137,7 +138,7 @@
     (t
       (recursivehelper
         boatsize
-        (getchildren boatsize (first open) (rest open) closed)
+        (append (getchildren boatsize (first open) (rest open) closed) (rest open))
         (cons (first open) closed)
         (cons (first open) path)
       )
@@ -156,7 +157,7 @@
 (defun missionarycannibal (groupsize boatsize)
   "Solves the problem of the missionaries and cannibals, for a given number
   of couples and capacity of boat using depth-first state search.
-  0's represent cannibals, 1's represent missionaries.
+  C's represent cannibals, M's represent missionaries.
   A given state is made up of a list of cannibals on the starting bank,
   a list of missionaries on the starting bank,
   a list of cannibals on the ending bank,
@@ -164,7 +165,7 @@
   and a single digit of 1 or -1, with 1 representing the boat positioned
   at the starting bank, and -1 representing the boat at the ending bank.
   A given state will look like this:
-  ((0 0 0) (1 1) (0) (1 1) -1)
+  ((C C C) (M M) (C) (M M) -1)
   In this case, there are 3 cannibals and 2 missionaries on the starting bank,
   1 cannibal and 2 missionaries on the ending bank, with the boat at the
   ending bank (unfortunately, the cannibals have eaten the missionaries
@@ -173,8 +174,8 @@
     boatsize 
     (list 
       (list
-        (fillriverbank 0 groupsize nil) 
-        (fillriverbank 1 groupsize nil) 
+        (fillriverbank 'c groupsize nil) 
+        (fillriverbank 'm groupsize nil) 
         nil
         nil
         1
