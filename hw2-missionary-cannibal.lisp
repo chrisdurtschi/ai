@@ -153,6 +153,14 @@
     (t (fillriverbank person (1- size) (cons person bank)))
   )
 )
+
+(defun printresults (results)
+  (cond
+    ((not (listp results)) (princ results))
+    ((null results) nil)
+    (t (princ (first results)) (terpri) (printresults (rest results)))
+  )
+)
   
 (defun missionarycannibal (groupsize boatsize)
   "Solves the problem of the missionaries and cannibals, for a given number
@@ -170,7 +178,7 @@
   1 cannibal and 2 missionaries on the ending bank, with the boat at the
   ending bank (unfortunately, the cannibals have eaten the missionaries
   in this state)."
-  (recursivehelper
+  (printresults (recursivehelper
     boatsize 
     (list 
       (list
@@ -183,18 +191,6 @@
     ) 
     nil 
     nil
-  )
+  ))
+  nil
 )
-
-(trace missionarycannibal)
-(trace fillriverbank)
-(trace recursivehelper)
-(trace isgoal)
-(trace getchildren)
-(trace goodchildren)
-(trace gettrips)
-(trace addlist)
-(trace sublist)
-(trace transfer)
-(trace issuccessfultrip)
-(trace ismissionarylunch)
