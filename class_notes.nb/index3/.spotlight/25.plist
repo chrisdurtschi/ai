@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>keywords</key>
+	<string></string>
+	<key>txt</key>
+	<string>Wednesday, January 28, 2009 Heuristic Search (to discover) Heuristic (noun) rule of thumb, guiding principle measure of relative goodness of state in state space search estimation of steps to goal Common Heuristics Hill Climb what gets me up the hill fastest? Local maximum problem false solutions Best First (page 134) Go to best state first Evaluate nearby states Head back if new states aren't any better than what I've seen before Keep the best states at the front of the open list, worst states at the back f(n) = g(n) + h(n) - estimated total path length g(n) - length from start state to state n h(n) - heuristic (estimate) of reaching goal from state n This gives you the estimated expense of the entire path from start to goal Heuristic Properties Admissibility never overestimate if you underestimate, you can check the actual value after the fact if you overestimate, you never consider expanding on the good state must be less than oracle function h*(n) Monotonicity no hills or valleys the actual path length calculation f(n) = g(n) + h(n) will be monotonic for the entire solution it will always increase or stay level, never go down always getting closer to goal Informedness the difference between the oracle function and our heuristic measures effectiveness of your heuristic 2 Player Zero Sum Game Game in which there is no Win-Win, Lose-Lose Solution Win counted as positive, Loss counted as negative Alternate Moves minimize maximize Mini-Max n-ply search how many layers of the search tree you go down Heuristic functions - tradeoff between accuracy and speed Alpha Beta Pruning don't evaluate the heuristic function until you know you have a reason to Alpha keeps track of largest maximum Beta keeps track of smallest minimum as soon as you find one branch which disqualifies, stop processing rest of sub branch </string>
+</dict>
+</plist>
