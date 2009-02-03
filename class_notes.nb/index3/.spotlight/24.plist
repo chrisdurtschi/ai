@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>keywords</key>
+	<string></string>
+	<key>txt</key>
+	<string>Monday, February 2, 2009 4.5 how many different states are there? how often will you come back to previous states? 4.12 ignore part a, think about part be when coming up with heuristics try more common letters before less common letters probability/distribution rules Stochastic Logic based on probabilities Why is it valuable to AI? some problems are based on probabilities some problems are so complex, a deterministic approach won't work expert systems Page 166 Where do probablilities come from? equally likely events &amp; counting permutations n ways of ordering -&gt; n! m of n -&gt; n! / (n - m)! combinations ordering is not important subsets k things s size of subsets s out of k k! / (k - s)! s! Probability formulas A has prob PA B has prob PB PA and B = PA * PB PA or B = PA + PB * PA * PB    or    1 - (1 - PA) * (1 - PB) B only if A -&gt; and PB min        or PA max mutually exclusive -&gt; and 0     or Bayes Theorum conditional probabilities P(A | B)   -&gt;  What is the probability A is true if you know B is true? how good an indicator of A is B? P(have flu | have fever) P(A)/flu P(B)/fever P(B | A) P(A | B) = P(B | A) * P(A) / P(B) </string>
+</dict>
+</plist>
