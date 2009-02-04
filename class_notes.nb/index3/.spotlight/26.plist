@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>keywords</key>
+	<string></string>
+	<key>txt</key>
+	<string>Wednesday, February 4, 2009 Production Systems Rule based system (productions) if these conditions are true =&gt; do X Working Storage initial facts of problem keeps adding facts as you apply rules Recognize-Act Cycle conflict resolution many rules may apply to a condition which one do you choose? you can order rules by importance sometimes rules don't have obvious rankings conflict resolution acts as heuristic to determine series of rules to get to goal OPS5 how to handle conflict resolution Refraction once a rule has fired, it cannot fire again until the overall conditions have changed reduces looping Recency choose rule that best fits most recent rules in working storage like depth first search - look at immediate children, not all siblings Specificity if a rule has more conditions, it is more specific - favor it Blackboard Architecture multiple autonomous agents programs that specialize in certain areas blackboard (working storage) process puts facts on blackboard agents look at facts, and ask themselves, "can I draw a conclusion from these facts?" moderator do any of the agents come up with the goal? helps guide process - control strategy (conflict resolution) content of blackboard Screaming Demons Architecture Awareness or Conscious Thought greater parallelization that blackboard model </string>
+</dict>
+</plist>
