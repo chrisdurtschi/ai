@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>keywords</key>
+	<string></string>
+	<key>txt</key>
+	<string>Reasoning Under Uncertainty Shortcomings of Deductive Logic Partial Knowledge Exceptions Uncertainty Stanford Certainty Factor - page 350 Dempster-Shafer "Theory of Evidence" Probabilistic Stochastic logic Degree Fuzzy logic Subjective aesthetics ethics Belief Systems what people believe to be the truth beliefs about other peoples beliefs Stanford Certainty Factor between -1 and 1 Measure of Belief minus Measure of Disbelief Condition1 and Condition2 and Condition3 =&gt; 80% chance Result is true and - minimum of certainty factor of conditions or - maximum of certainty factor of conditions not =&gt; P(not (F)) =&gt; not (P(F)) Dempster-Shafer Range: Belief - Plausibility Strength of Belief it is true 1 minus Plausibility no evidence =&gt; 0.0 - 1.0 complete certainty =&gt; 1.0 - 1.0 evidence of truth boosts first number evidence of falsity drops second number Fuzzy Logic  Homework Chapter 8: 1 (choose your own application), 6 (read about some expert system development tool, what strengths does it have?), 12 (go on web, search for "Case based reasoning / decision making", find current info, comment on it) Chapter 9: 2,15 (weighted less strongly), Create your own Demptster Shafer Problem </string>
+</dict>
+</plist>
