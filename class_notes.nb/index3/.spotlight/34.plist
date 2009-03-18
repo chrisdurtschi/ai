@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>keywords</key>
+	<string></string>
+	<key>txt</key>
+	<string>Fuzzy Logic Steps to process Fuzzification Convert specific numeric values into fuzzy sets Fuzzy rules Like rules associated with expert system If this and this and this then that Combination rules like Stanford Certainty Factor Defuzzification Take final result and use it to provide a precise response, "crisp response" </string>
+</dict>
+</plist>
