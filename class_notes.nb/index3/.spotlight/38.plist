@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>keywords</key>
+	<string></string>
+	<key>txt</key>
+	<string>Neural Networks Simplifications small number of neurons continuous output rather than discrete firing behavior network structure fully connected every neuron has a connection to every other neuron what is the output value of each neuron (-1 to +1) forward feed input neurons respond to external information several more layer of neurons every neuron in layer 1 feeds into every neuron of layer 2, every neuron in layer 2 feeds into every neuron of layer 3, ...... etc final layer is output layer pools groups of neurons that represent property each neuron in group represents value for property weak negative connection between neurons in pools positive interactions between pools linearized input effects activation of neuron X is a function of all inputs to neuron X weighted sum of inputs simple response functions linear step / switch truncated linear (combination of linear and step) linear with cutoff, gradual transition to maximum value (sigmoid) Models of PDP IAC Constraint Satisfier Pattern Association Back Propagation Auto Associators Kohonen - Competitive Learning4 Multi-level Learning Model </string>
+</dict>
+</plist>
