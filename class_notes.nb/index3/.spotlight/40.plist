@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>keywords</key>
+	<string></string>
+	<key>txt</key>
+	<string>Learning Directed / Forced Learning For this pattern, I want to see this output Back Propogation Learning Epoch Do each pattern Forward Set input layer a.i = input.i Calculate Net.j = SUM.i  W.i.j * a.i + Bias.j  Calculate a.j = f(Net.j) f(x) = 1 / 1 + e ^ -x Calculate Net.k = SUM.j  W.j.k * a.j + Bias.k Calculate a.k = f(Net.k) Calculate error.k = t.p - a.k Backward Calculate learning deltas d.k = f'(Net.k) * error.k = a.k * (1 - a.k) * error.k use to adjust W.j.k and Bias.k Back propagate errors d.j = a.j * (1 - a.j) * SUM.k  W.j.k * d.k use to adjust W.i.j and Bias.j Calculate adjusted weightings and bias after calculating all patterns DELTA W.i.j = -EPSILON.1 d.j * a.i DELTA Bias.j = -EPSILON.2 d.j DELTA W.j.k = -EPSILON d.k * a.j DELTA Bias.k = -EPSILON d.k 0.1 typical value for EPSILON OR calculate adjusted weightings and bias after each pattern, after all patterns have been calculated, randomly permeate patterns and cycle through again Weighted average first time   D W.j.k = DELTA W.j.k subsequent times  D W.j.k = D W.j.k (1 - ESPILON) + EPSILON * DELTA W.j.k </string>
+</dict>
+</plist>

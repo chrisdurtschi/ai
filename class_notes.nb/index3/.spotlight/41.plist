@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>keywords</key>
+	<string></string>
+	<key>txt</key>
+	<string>Kohonen Model Competitive learning "Winner take all" No target pattern Infers patterns from the data Combines forward feed with pools Only use positive weights Take biggest Net value from pool </string>
+</dict>
+</plist>
