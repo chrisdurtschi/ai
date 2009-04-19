@@ -1,0 +1,5 @@
+Z:\Dev\AI\BackPropagation\BackPropagation\bin\Debug\BackPropagation.exe
+Z:\Dev\AI\BackPropagation\BackPropagation\bin\Debug\BackPropagation.pdb
+Z:\Dev\AI\BackPropagation\BackPropagation\obj\Debug\ResolveAssemblyReference.cache
+Z:\Dev\AI\BackPropagation\BackPropagation\obj\Debug\BackPropagation.exe
+Z:\Dev\AI\BackPropagation\BackPropagation\obj\Debug\BackPropagation.pdb
