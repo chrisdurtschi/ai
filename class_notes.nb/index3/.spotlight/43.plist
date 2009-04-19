@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>keywords</key>
+	<string></string>
+	<key>txt</key>
+	<string>Genetic Algorithms What kind of problems can genetic algorithms solve? Parameterizable Solution Space Initial set of parameters (genetic code) Goodness Test (Fitness Function) Good not best (Relative goodness) Changing environment (adaptability) How to setup algorithm? Create genetic code from parameters Create population Fixed or variable Size - 50 to 1000 Initialization totally random realistic / coordinated Locus a specific gene Allele a possible value for a locus Run the program (loop) Evaluate goodness for each code / member Generate new population (stochastic probability) -&gt; clones Cross overs - trade genetic code between individuals Mutations Using results Take the best Randomly choose one Choose whole population, weight based on goodness What is the information in the population trying to tell us?  Code similarity analysis. </string>
+</dict>
+</plist>

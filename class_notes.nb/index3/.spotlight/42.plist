@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>keywords</key>
+	<string></string>
+	<key>txt</key>
+	<string>Learning Models IAC Memory model Hebbian 1 input layer 1 output layer 1 training cycle can only learn things where output is directly related to output delta rule linearly separable solutions Perceptron 2 layer forward feed models linear activation functions Back Propagation 3 layers Continuous sigmoid activation Kohonen Winner take all Self learning model (Categorize) Pools </string>
+</dict>
+</plist>
