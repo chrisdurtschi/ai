@@ -1,0 +1,5 @@
+Z:\Dev\AI\GeneticAlgorithm\GeneticAlgorithm\bin\Debug\GeneticAlgorithm.exe
+Z:\Dev\AI\GeneticAlgorithm\GeneticAlgorithm\bin\Debug\GeneticAlgorithm.pdb
+Z:\Dev\AI\GeneticAlgorithm\GeneticAlgorithm\obj\Debug\ResolveAssemblyReference.cache
+Z:\Dev\AI\GeneticAlgorithm\GeneticAlgorithm\obj\Debug\GeneticAlgorithm.exe
+Z:\Dev\AI\GeneticAlgorithm\GeneticAlgorithm\obj\Debug\GeneticAlgorithm.pdb

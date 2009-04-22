@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D8161798-2B80-4331-84A8-DBAAE5185044}</ProjectGuid>
+    <ProjectGuid>{C5490181-212C-483D-99FF-BA495E82D849}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BackPropagation</RootNamespace>
-    <AssemblyName>BackPropagation</AssemblyName>
+    <RootNamespace>GeneticAlgorithm</RootNamespace>
+    <AssemblyName>GeneticAlgorithm</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,12 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Layer.cs" />
-    <Compile Include="LayerList.cs" />
-    <Compile Include="Network.cs" />
-    <Compile Include="Pattern.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Word.cs" />
+    <Compile Include="WordGuesser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,9 +8,15 @@ namespace BackPropagation
     public class Layer
     {
         double _bias;
-        List<Neuron> _neurons = new List<Neuron>();
+        List<double> _neurons = new List<double>();
 
-        public List<Neuron> Neurons
+        public double Bias
+        {
+            get { return _bias; }
+            set { _bias = value; }
+        }
+
+        public List<double> Neurons
         {
             get { return _neurons; }
         }
@@ -21,7 +27,7 @@ namespace BackPropagation
 
             for (int i = 0; i < numNeurons; i++)
             {
-                _neurons.Add(new Neuron());
+                _neurons.Add(1.0);
             }
         }
     }
