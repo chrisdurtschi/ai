@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Chris Durtschi
+ * Artificial Intelligence
+ * Genetic Algorithm
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,9 +36,9 @@ namespace GeneticAlgorithm
         public int CompareTo(Word other)
         {
             if (this.Fitness < other.Fitness)
-                return -1;
-            else if (this.Fitness > other.Fitness)
                 return 1;
+            else if (this.Fitness > other.Fitness)
+                return -1;
             else
                 return 0;
         }

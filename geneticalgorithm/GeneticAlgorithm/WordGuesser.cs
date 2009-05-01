@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Chris Durtschi
+ * Artificial Intelligence
+ * Genetic Algorithm
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,16 +19,16 @@ namespace GeneticAlgorithm
         double _mutationProbability;
         int _totalFitness;
 
+        string _word;
         char[] _letters;
         List<Word> _population;
         Random _rng = new Random();
 
-        public WordGuesser(int populationSize, int maxGenerations, double replacementProbability, double crossoverProbability, double mutationProbability)
+        public WordGuesser(int populationSize, int maxGenerations, double crossoverProbability, double mutationProbability)
         {
             if (populationSize <= 0)
                 throw new ArgumentException("Population size and max generations must be greater than 0");
-            if (replacementProbability < 0.0 || replacementProbability > 1.0 ||
-                crossoverProbability < 0.0 || crossoverProbability > 1.0 ||
+            if (crossoverProbability < 0.0 || crossoverProbability > 1.0 ||
                 mutationProbability < 0.0 || mutationProbability > 1.0)
                 throw new ArgumentException("Probabilities must be between 0.0 and 1.0");
 
@@ -34,26 +40,36 @@ namespace GeneticAlgorithm
 
         public string Guess(string word)
         {
-            _letters = word.ToLower().ToCharArray();
-            this.InitializePopulation();
+            _word = word;
+            _letters = _word.ToLower().ToCharArray();
+            _population = this.InitializePopulation();
             this.CalculateFitnessOfPopulation();
-            this.Reproduce();
 
+            for (int i = 0; i < _maxGenerations; i++)
+            {
+                this.Reproduce();
+                int crossovers = this.Crossover();
+                int mutations = this.Mutate();
+                this.CalculateFitnessOfPopulation();
+                Console.Out.WriteLine(String.Format("Crossovers: {0}; Mutations: {1}; Fitness: {2}; Best: {3}", crossovers, mutations, _population[0].Fitness, _population[0].ToString()));
+                if (_population[0].ToString() == _word)
+                {
+                    Console.Out.WriteLine("Solution found in " + (i + 1) + " generations");
+                    break;
+                }
+            }
 
             return String.Empty;
         }
 
-        void InitializePopulation()
+        List<Word> InitializePopulation()
         {
-            // a = 97, z = 122
-            _population = new List<Word>();
+            List<Word> population = new List<Word>();
             for (int i = 0; i < _populationSize; i++)
             {
-                char[] word = new char[_letters.Length];
-                for (int j = 0; j < _letters.Length; j++)
-                    word[j] = Convert.ToChar(_rng.Next(97, 122));
-                _population.Add(new Word(word));
+                population.Add(this.GetRandomWord());
             }
+            return population;
         }
 
         void CalculateFitnessOfPopulation()
@@ -69,24 +85,25 @@ namespace GeneticAlgorithm
 
         void Reproduce()
         {
-            // Select random fitness at which to survive.
-            // Replace all losers with random copies of winners.
+            int cutoff = _rng.Next(_totalFitness);
+            int totalFitness = 0;
+            int i;
 
-            int randomFitness = _rng.Next(_totalFitness);
-            int cutoff;
-
-            for (cutoff = 0; cutoff < _populationSize; cutoff++)
+            for (i = 0; i < _populationSize; i++)
             {
-                if (_population[cutoff].Fitness > cutoff)
+                totalFitness += _population[i].Fitness;
+                if (cutoff < totalFitness)
                     break;
             }
-
-            for (int i = cutoff; i < _populationSize; i++)
-                _population[i] = this.GetRandomMemberOfPopulation(_population.GetRange(0, cutoff));
+            
+            for (int j = i; j < _populationSize; j++)
+                _population[j] = this.GetRandomWord();
         }
 
-        void Crossover()
+        int Crossover()
         {
+            int crossovers = 0;
+
             foreach (Word word in _population)
             {
                 if (_rng.NextDouble() > _crossoverProbability)
@@ -98,7 +115,8 @@ namespace GeneticAlgorithm
                     randomWord = this.GetRandomMemberOfPopulation(_population);
                 } while (randomWord == word);
 
-                int crossover = _rng.Next(1, _letters.Length - 2);
+                crossovers++;
+                int crossover = _rng.Next(1, _letters.Length - 1);
                 for (int i = 0; i < _letters.Length; i++)
                 {
                     if (i >= crossover)
@@ -109,11 +127,25 @@ namespace GeneticAlgorithm
                     }
                 }
             }
+
+            return crossovers;
         }
 
-        void Mutate()
+        int Mutate()
         {
+            int mutations = 0;
 
+            foreach (Word word in _population)
+            {
+                if (_rng.NextDouble() > _mutationProbability)
+                    continue;
+
+                mutations++;
+                int randomIndex = _rng.Next(0, _letters.Length - 1);
+                word.Letters[randomIndex] = this.GetRandomLetter();
+            }
+
+            return mutations;
         }
 
         int Fitness(char[] letters)
@@ -121,15 +153,44 @@ namespace GeneticAlgorithm
             int fitness = 0;
             for (int i = 0; i < _letters.Length; i++)
             {
-                fitness += Math.Abs(Convert.ToInt32(letters[i]) - Convert.ToInt32(_letters[i]));
+                //fitness += Math.Abs(Convert.ToInt32(letters[i]) - Convert.ToInt32(_letters[i]));
+                if (letters[i] == _letters[i])
+                    fitness += 1;
             }
             return fitness;
         }
 
         Word GetRandomMemberOfPopulation(List<Word> population)
         {
-            int randomIndex = _rng.Next(population.Count - 1);
+            int randomIndex = _rng.Next(0, population.Count - 1);
             return population[randomIndex];
+        }
+
+        Word GetRandomMemberOfPopulation(List<Word> population, int totalFitness)
+        {
+            int randomFitness = _rng.Next(totalFitness);
+            int fitnessCounter = 0;
+            foreach (Word word in population)
+            {
+                fitnessCounter += word.Fitness;
+                if (fitnessCounter >= randomFitness)
+                    return word;
+            }
+            return null;
+        }
+
+        Word GetRandomWord()
+        {
+            char[] word = new char[_letters.Length];
+            for (int j = 0; j < _letters.Length; j++)
+                word[j] = this.GetRandomLetter();
+            return new Word(word);
+        }
+
+        char GetRandomLetter()
+        {
+            // a = 97, z = 122
+            return Convert.ToChar(_rng.Next(97, 122));
         }
     }
 }

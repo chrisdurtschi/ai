@@ -198,9 +198,9 @@ float WholeFit(CodeType Code)
 
   /* 100110011001 */
   for (l=0; l<CodeSize; l++)
-    Tot += fitness(Code[l]);
-    //if (((l % 4 == 0 || l % 4 == 3) && Code[l] == 1.0) || ((l % 4 == 1 || l % 4 == 2) && Code[l] == 0.0))
-    //  Tot += 1.0; 
+    //Tot += fitness(Code[l]);
+    if (((l % 4 == 0 || l % 4 == 3) && Code[l] == 1.0) || ((l % 4 == 1 || l % 4 == 2) && Code[l] == 0.0))
+      Tot += 1.0; 
 
   return Tot;
 }
